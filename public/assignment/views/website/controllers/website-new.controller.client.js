@@ -1,0 +1,20 @@
+(function() {
+    angular
+        .module("WampApp")
+        .controller("websiteNewController",websiteNewController);
+
+    function websiteNewController($routeParams, websiteService) {
+        var model = this;
+
+        model.userId = $routeParams.userId;
+        var websites =[
+            {"id": "123", "name":"Facebook","developerId":"456", "description":"Yo facebook"},
+            {"id": "234", "name":"Tweeter","developerId":"456", "description":"Yo Tweet"}
+        ];
+
+        function init() {
+            model.websites=websiteService.findWebsitesForUser(model.userId);
+        }
+        init();
+    }
+})();

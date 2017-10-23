@@ -1,0 +1,86 @@
+<div class="ial-profile">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="#">Profile</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+
+        <label for="firstName">First Name</label>
+        <input ng-model="model.user.firstName" 
+            placeholder="Alice" 
+            type="text" 
+            name="firstName" 
+            id="firstName" 
+            class="form-control">
+        
+        <label for="lastName">Last Name</label>
+        <input ng-model="model.user.lastName" 
+            placeholder="Wonderland" 
+            type="text" 
+            name="lastName" 
+            id="lastName" 
+            class="form-control">
+
+        <label for="username">Username</label>
+        <input ng-model="model.user.username" 
+            readonly 
+            value="Alice" 
+            placeholder="Alice" 
+            type="text" 
+            name="username" 
+            id="username" 
+            class="form-control">
+
+        <label for="email">Email</label>
+        <input placeholder="alice@wonderland.com" 
+            type="email" 
+            name="email" 
+            id="email" 
+            class="form-control">
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" 
+            name="dob" 
+            id="dob" 
+            class="form-control">
+
+        
+        <a class="btn btn-primary btn-block" href="#!/user/{{model.user._id}}/website/" 
+        role="button">Websites</a>
+        
+        <a class="btn btn-danger btn-block" href="#!/login" 
+        role="button">Logout</a>
+
+        <a class="btn btn-danger btn-block"  
+        ng-click="model.unregister()"
+        role="button">Unregister</a>
+
+        <a class="btn btn-danger btn-block" 
+        ng-click="model.updateUser()"
+        role="button">Update</a>
+    </div>
+    </nav>
+</div>
