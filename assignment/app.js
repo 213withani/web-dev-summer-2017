@@ -1,10 +1,25 @@
-var app = require("../express");
+var app = require('../express');
 
-var websites = [
-    { "id": "123", "name": "Facebook", "developerId": "123", "description": "Yo facebook" },
-    { "id": "234", "name": "Tweeter", "developerId": "456", "description": "Yo Tweet" }
+var users = [
+    { _id: 123, username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", isAdmin: "true" },
+    { _id: 234, username: "bob", password: "bob", firstName: "Bob", lastName: "Bob" },
 ];
 
-app.get("/users", function (req, response) {
-    response.send(users);
-});
+app.get('/users', getAllUsers)
+
+app.get('/user/:userId', getUserById)
+
+function getUserById(req, res) {
+    for (var u in users) {
+
+        if (users[u]._id == req.params.userId) {
+            res.send(users[u])
+
+        }
+    }
+
+}
+
+function getAllUsers(req, res) {
+    res.send(users)
+}
