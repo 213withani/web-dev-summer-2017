@@ -7,6 +7,9 @@ var users = [
 
 // api token meant to return dynamic data, 
 // user won't create directory api and adding files there causing confuscius
+app.get('/', function (req,res) {
+    res.send("Welcome to root");
+})
 app.get('/api/users', getAllUsers)
 app.get('/api/user/:userId', getUserById)
 
