@@ -3,7 +3,7 @@
         .module("WampApp")
         .factory("userService", userService);
 
-    function userService() {
+    function userService($http) {
         var users = [
             { _id: 123, username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", isAdmin:"true" },
             { _id: 234, username: "bob", password: "bob", firstName: "Bob", lastName: "Bob" },
@@ -46,13 +46,7 @@
         }
 
         function findUserById(userId) {
-            for (var u in users) {
-                //type coercion between number and string
-                if (users[u]._id == userId) {
-                    return users[u];
-                }
-            }
-            return null;
+            return $http.get("/api/user/"+userId); 
         }
 
         function findUserByUsernameAndPassword(username, password) {
