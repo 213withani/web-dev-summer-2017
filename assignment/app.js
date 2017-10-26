@@ -13,12 +13,21 @@ app.get('/', function (req, res) {
 
 app.get('/api/users', getAllUsers)
 app.get('/api/user/:userId', getUserById)
-app.get('/user', findUserByUsernameAndPassword);
+app.get('/api/user', findUserByUsernameAndPassword);
 
 function findUserByUsernameAndPassword(req, res) {
-    var username= req.query.username;
-    var password= req.query.password;
-    res.send("yo vfindUserByUsernameAndPassword");
+    var username = req.query.username;
+    var password = req.query.password;
+
+    for (var u in users) {
+        var _user = users[u];
+
+        if (_user.username === username && _user.password === password) {
+            res.send(_user);
+            return;
+        }
+    }
+    res.send("0");
 }
 
 function getUserById(req, res) {

@@ -52,18 +52,8 @@
         }
 
         function findUserByUsernameAndPassword(username, password) {
-            var url = "/user?username=" + username + "&password=" + password;
-
-            $http.get(url);
-
-            // for (var u in users) {
-            //     var _user = users[u];
-
-            //     if (_user.username === username && _user.password === password) {
-            //         return _user;
-            //     }
-            // }
-            // return null;
+            var url = "/api/user?username=" + username + "&password=" + password;
+            return $http.get(url);
         }
     }
 })();
