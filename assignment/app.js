@@ -13,18 +13,28 @@ app.get('/', function (req, res) {
 
 app.get('/api/users', getAllUsers)
 app.get('/api/user/:userId', getUserById)
-app.get('/api/user', findUserByUsernameAndPassword);
+app.get('/api/user', findUser);
 
-function findUserByUsernameAndPassword(req, res) {
+function findUser(req, res) {
+
     var username = req.query.username;
     var password = req.query.password;
 
-    for (var u in users) {
-        var _user = users[u];
-
-        if (_user.username === username && _user.password === password) {
-            res.send(_user);
-            return;
+    if (username && password) {
+        for (var u in users) {
+            var _user = users[u];
+            if (_user.username === username && _user.password === password) {
+                res.send(_user);
+                return;
+            }
+        }
+    } else if (username) {
+        for (var u in users) {
+            //type coercion between number and string
+            if (users[u].username === username) {
+                res.send( users[u]);
+                return;
+            }
         }
     }
     res.send("0");
@@ -32,7 +42,6 @@ function findUserByUsernameAndPassword(req, res) {
 
 function getUserById(req, res) {
     for (var u in users) {
-
         if (users[u]._id == req.params.userId) {
             res.send(users[u])
         }

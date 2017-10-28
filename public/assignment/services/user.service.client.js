@@ -32,19 +32,17 @@
         }
 
         function findUserByUsername(username) {
-            for (var u in users) {
-                //type coercion between number and string
-                if (users[u].username === username) {
-                    return users[u];
-                }
-            }
-            return null;
+            var url = "/api/user?username=" + username;
+            return $http.get(url);
+            $http.post(url, user);
         }
 
         function registerUser(user) {
-            user._id = (new Date()).getTime() + "";
-            users.push(user);
-            return user;
+            var url = "/api/user";
+            $http.post(url, user);
+            // user._id = (new Date()).getTime() + "";
+            // users.push(user);
+            // return user;
         }
 
         function findUserById(userId) {
