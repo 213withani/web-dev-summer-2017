@@ -40,9 +40,6 @@
         function registerUser(user) {
             var url = "/api/user";
             $http.post(url, user);
-            // user._id = (new Date()).getTime() + "";
-            // users.push(user);
-            // return user;
         }
 
         function findUserById(userId) {

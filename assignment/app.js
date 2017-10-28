@@ -14,6 +14,15 @@ app.get('/', function (req, res) {
 app.get('/api/users', getAllUsers)
 app.get('/api/user/:userId', getUserById)
 app.get('/api/user', findUser);
+app.post('/api/user', registerUser);
+
+function registerUser(req, res) {
+    var req.body;
+    
+    user._id = (new Date()).getTime() + "";
+    users.push(user);
+    return user;
+}
 
 function findUser(req, res) {
 
@@ -32,7 +41,7 @@ function findUser(req, res) {
         for (var u in users) {
             //type coercion between number and string
             if (users[u].username === username) {
-                res.send( users[u]);
+                res.send(users[u]);
                 return;
             }
         }
