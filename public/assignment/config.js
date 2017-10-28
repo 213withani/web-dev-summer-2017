@@ -5,7 +5,7 @@
     angular.module("WampApp")
         .config(configuration);
 
-    function configuration($routeProvider,$httpProvider) {
+    function configuration($routeProvider) {
         $routeProvider
             .when("/", {
                 templateUrl: "views/home/home.view.client.html",

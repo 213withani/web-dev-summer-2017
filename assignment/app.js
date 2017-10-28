@@ -17,11 +17,10 @@ app.get('/api/user', findUser);
 app.post('/api/user', registerUser);
 
 function registerUser(req, res) {
-    var req.body;
-    
+    var user = req.body;
     user._id = (new Date()).getTime() + "";
     users.push(user);
-    return user;
+    res.send(user);
 }
 
 function findUser(req, res) {
