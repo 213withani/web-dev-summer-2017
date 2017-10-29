@@ -18,7 +18,7 @@
                 sites.push(websites[w]);
             }
         }
-        res.json(sites);
+        res.send(sites);
     }
 
     function createWebsite(req, res) {
