@@ -3,12 +3,15 @@
         .module("WampApp")
         .service("websiteService", websiteService);
 
-    function websiteService() {
+    function websiteService($http) {
         this.findWebsitesForUser = findWebsitesForUser;
 
         function findWebsitesForUser(userId) {
             var url = "/api/user/" + userId + "/website";
-            $http.get(url);
+            return $http.get(url)
+            .then(function (response) {
+                return response.data;
+            });
         }
     }
 })();
