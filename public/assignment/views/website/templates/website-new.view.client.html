@@ -36,18 +36,27 @@
                 <label for="name">Name</label>
                 <input placeholder="Facebook" 
                     ng-model="website.name"
-                    type="text" name="name" id="name" class="form-control">
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    class="form-control">
 
                 <label for="description">Description</label>
-                <textarea rows=5 placeholder="Description Description Description" 
+                <textarea rows=5 
+                    placeholder="Description Description Description" 
                     ng-model="website.description"
-                    type="text" name="name" id="name" class="form-control"></textarea>
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    class="form-control"></textarea>
 
                 <a class="btn btn-primary btn-block" 
                     ng-click="model.createWebsite()"
                     role="button">Create</a>
 
-                <a class="btn btn-danger btn-block" href="#!/user/{{model.userId}}/website " role="button">Cancel</a>
+                <a class="btn btn-danger btn-block" 
+                    href="#!/user/{{model.userId}}/website " 
+                    role="button">Cancel</a>
             </div>
         </div>
     </div>
