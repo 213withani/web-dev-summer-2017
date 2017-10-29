@@ -14,19 +14,18 @@
         model.unregister = unregister;
 
         function init() {
-            var promise = userService.findUserById(userId);
-            promise.then(function (response) {
+            userService.findUserById(userId).then(function (response) {
                 model.user = response.data;
             });
         }
         init();
-    }
 
-    function updateUser(user) {
-        userService.updateUser(user._id, user);
-    }
-
-    function unregister() {
-
+        function updateUser(user) {
+            userService.updateUser(user._id, user);
+        }
+    
+        function unregister() {
+    
+        }
     }
 })();   
