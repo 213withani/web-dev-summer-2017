@@ -2,6 +2,7 @@
     var app = require("../express");
 
     app.get("/api/user/:userId/website", findWebsitesForUser);
+    app.get("/api/user/:userId/website/:websiteId", findWebsiteById);
     app.post("/api/user/:userId/website", createWebsite);
 
     var websites = [
@@ -30,4 +31,14 @@
         websites.push(website);
         res.json(website);
     }
+
+    function findWebsiteById(req, res) {
+        for (var w in websites) {
+            if (websites[w]._id === userId) {
+                res.json(websites[w]);
+            }
+        }
+        res.sendStatus(404);
+    }
+
 })();
